@@ -12,6 +12,7 @@ import {
 import {useMovies} from '../hooks/useMovies';
 import {MoviePoster} from '../components/MoviePoster';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {HorizontalSlider} from '../components/HorizontalSlider';
 
 const {width: windowWidth} = Dimensions.get('window');
 
@@ -33,20 +34,11 @@ export const HomeScreen = () => {
             itemWidth={300}
             renderItem={({item}) => <MoviePoster movie={item} />}
             sliderWidth={windowWidth}
+            inactiveSlideOpacity={0.9}
           />
         </View>
-        <View style={{height: 260}}>
-          <Text style={{fontSize: 30, fontWeight: 'bold'}}>Popular</Text>
-          <FlatList
-            data={moviesInTheatre}
-            horizontal
-            keyExtractor={item => item.id.toString()}
-            renderItem={({item}) => (
-              <MoviePoster movie={item} width={140} height={200} />
-            )}
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
+
+        <HorizontalSlider movies={moviesInTheatre} title="In Cinemas" />
       </View>
     </ScrollView>
   );
