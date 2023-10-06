@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, View, TouchableOpacity} from 'react-native';
 import {Movie} from '../interfaces/movieInterface';
 import {useNavigation} from '@react-navigation/native';
+import {RootStackParams, StackNavigation} from '../navigation/Navigation';
 
 interface Props {
   movie: Movie;
@@ -12,7 +13,7 @@ interface Props {
 export const MoviePoster = ({movie, height = 420, width = 300}: Props) => {
   const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
-  const {navigate} = useNavigation();
+  const {navigate} = useNavigation<StackNavigation>();
 
   return (
     <TouchableOpacity
