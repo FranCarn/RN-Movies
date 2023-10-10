@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: 4,
   },
-  name: {fontWeight: 'bold', fontSize: 18, marginBottom: 4},
+  name: {fontWeight: 'bold', fontSize: 18},
   character: {fontSize: 16, opacity: 0.7},
 });
