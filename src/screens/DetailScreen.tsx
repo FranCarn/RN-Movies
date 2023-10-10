@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Dimensions,
+  ActivityIndicator,
+} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../navigation/Navigation';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -12,8 +19,16 @@ interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> {}
 
 export const DetailScreen = ({route}: Props) => {
   const movie = route.params;
+  const {isLoading, cast, movieFull} = useMovieDetails(movie.id);
   const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-  const {state} = useMovieDetails(movie.id);
+
+  if (isLoading)
+    return (
+      <View style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}>
+        <ActivityIndicator color="#f452D1" size={100} />
+      </View>
+    );
+
   return (
     <ScrollView>
       <View style={styles.imageContainer}>
