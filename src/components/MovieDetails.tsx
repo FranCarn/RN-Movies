@@ -20,8 +20,19 @@ export const MovieDetails = ({movie, cast}: Props) => {
           </Text>
         </View>
 
-        <Text>{movie.budget}</Text>
-        <Text>{movie.budget}</Text>
+        <Text style={{fontSize: 23, marginTop: 10, fontWeight: 'bold'}}>
+          Synopsis:
+        </Text>
+        <Text style={{fontSize: 16, lineHeight: 2}}>{movie.overview}</Text>
+        <Text style={{fontSize: 23, marginTop: 10, fontWeight: 'bold'}}>
+          Budget:
+        </Text>
+        <Text style={{fontSize: 18, lineHeight: 2}}>
+          {new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          }).format(movie.budget)}
+        </Text>
       </View>
     </>
   );
