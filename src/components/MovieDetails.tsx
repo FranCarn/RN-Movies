@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Cast, MovieFull} from '../interfaces/movieInterface';
 import {CastItem} from './CastItem';
+import {FlatList} from 'react-native-gesture-handler';
 
 interface Props {
   movie: MovieFull;
@@ -46,9 +47,14 @@ export const MovieDetails = ({movie, cast}: Props) => {
           Cast:
         </Text>
 
-        {cast.map(item => (
-          <CastItem actor={item} />
-        ))}
+        <FlatList
+          horizontal
+          data={cast}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({item}) => <CastItem actor={item} />}
+          showsHorizontalScrollIndicator={false}
+          style={{marginTop: 10, height: 70}}
+        />
       </View>
     </>
   );
