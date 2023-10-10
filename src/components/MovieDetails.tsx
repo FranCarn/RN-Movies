@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Cast, MovieFull} from '../interfaces/movieInterface';
+import {CastItem} from './CastItem';
 
 interface Props {
   movie: MovieFull;
@@ -33,6 +34,21 @@ export const MovieDetails = ({movie, cast}: Props) => {
             currency: 'USD',
           }).format(movie.budget)}
         </Text>
+      </View>
+      <View style={{marginTop: 10, marginBottom: 100}}>
+        <Text
+          style={{
+            fontSize: 23,
+            marginTop: 10,
+            fontWeight: 'bold',
+            marginHorizontal: 20,
+          }}>
+          Cast:
+        </Text>
+
+        {cast.map(item => (
+          <CastItem actor={item} />
+        ))}
       </View>
     </>
   );
