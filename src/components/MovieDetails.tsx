@@ -10,12 +10,13 @@ interface Props {
   cast: Cast[];
 }
 export const MovieDetails = ({movie, cast}: Props) => {
+  if (!movie || !cast) return <Text></Text>;
   return (
     <>
       <View style={{marginHorizontal: 20}}>
         <View style={{flexDirection: 'row'}}>
           <Icon name="star-outline" color="grey" size={16} />
-          <Text>{movie.vote_average}</Text>
+          <Text>{movie.vote_count}</Text>
 
           <Text style={{marginLeft: 5}}>
             - {movie.genres.map(genre => genre.name).join(', ')}
