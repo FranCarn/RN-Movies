@@ -6,7 +6,7 @@ import {useMovies} from '../hooks/useMovies';
 import {MoviePoster} from '../components/MoviePoster';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {HorizontalSlider} from '../components/HorizontalSlider';
-import {GradientBackground} from '../components/GradientBAckground';
+import {GradientBackground} from '../components/GradientBackground';
 
 const {width: windowWidth} = Dimensions.get('window');
 
