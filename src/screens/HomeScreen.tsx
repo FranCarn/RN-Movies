@@ -6,6 +6,7 @@ import {useMovies} from '../hooks/useMovies';
 import {MoviePoster} from '../components/MoviePoster';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {HorizontalSlider} from '../components/HorizontalSlider';
+import {GradientBackground} from '../components/GradientBAckground';
 
 const {width: windowWidth} = Dimensions.get('window');
 
@@ -19,22 +20,24 @@ export const HomeScreen = () => {
       </View>
     );
   return (
-    <ScrollView>
-      <View style={{marginTop: top + 10}}>
-        <View style={{height: 440}}>
-          <Carousel
-            data={nowPlaying}
-            itemWidth={300}
-            renderItem={({item}) => <MoviePoster movie={item} />}
-            sliderWidth={windowWidth}
-            inactiveSlideOpacity={0.9}
-          />
-        </View>
+    <GradientBackground>
+      <ScrollView>
+        <View style={{marginTop: top + 10}}>
+          <View style={{height: 440}}>
+            <Carousel
+              data={nowPlaying}
+              itemWidth={300}
+              renderItem={({item}) => <MoviePoster movie={item} />}
+              sliderWidth={windowWidth}
+              inactiveSlideOpacity={0.9}
+            />
+          </View>
 
-        <HorizontalSlider movies={popular} title="Popular" />
-        <HorizontalSlider movies={topRated} title="Top Rated" />
-        <HorizontalSlider movies={upcoming} title="Upcoming" />
-      </View>
-    </ScrollView>
+          <HorizontalSlider movies={popular} title="Popular" />
+          <HorizontalSlider movies={topRated} title="Top Rated" />
+          <HorizontalSlider movies={upcoming} title="Upcoming" />
+        </View>
+      </ScrollView>
+    </GradientBackground>
   );
 };
