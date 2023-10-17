@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from 'react-native-snap-carousel';
-import ImageColors from 'react-native-image-colors';
 
 import {ActivityIndicator, Dimensions, ScrollView, View} from 'react-native';
 import {useMovies} from '../hooks/useMovies';
