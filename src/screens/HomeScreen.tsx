@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Carousel from 'react-native-snap-carousel';
 
 import {ActivityIndicator, Dimensions, ScrollView, View} from 'react-native';
@@ -25,6 +25,10 @@ export const HomeScreen = () => {
 
     setMainColors({primary, secondary});
   };
+
+  useEffect(() => {
+    if (nowPlaying.length) getPosterColors(0);
+  }, [nowPlaying]);
 
   if (isLoading)
     return (
